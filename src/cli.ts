@@ -75,6 +75,9 @@ for (const reviewItemKey of reviewMap.keys()) {
   }
 }
 
+// save cleanups
+await saveReviews(reviewfile, reviewMap);
+
 // get items for review
 const dueDateItems: ReviewItem[] = [];
 for (const review of reviewMap.values()) {
