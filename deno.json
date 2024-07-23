@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV src/cli.ts"
+  },
+  "imports": {
+    "@std/cli": "jsr:@std/cli@^1.0.0",
+    "@std/path": "jsr:@std/path@^1.0.1",
+    "dayjs": "npm:dayjs@^1.11.12",
+    "fastest-levenshtein": "npm:fastest-levenshtein@^1.0.16",
+    "supermemo": "npm:supermemo@^2.0.17"
+  }
+}

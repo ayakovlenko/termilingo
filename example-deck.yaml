@@ -1,0 +1,13 @@
+cards:
+  - f: a dog
+    b: en hund
+  - f: the dog
+    b: hunden
+  - f: a cat
+    b: en katt
+  - f: the cat
+    b: katten
+  - f: a house
+    b: ett hus
+  - f: the house
+    b: huset
