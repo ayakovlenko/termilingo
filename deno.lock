@@ -3,9 +3,17 @@
   "packages": {
     "specifiers": {
       "jsr:@std/assert": "jsr:@std/assert@1.0.0",
+      "jsr:@std/bytes@^1.0.0-rc.3": "jsr:@std/bytes@1.0.2",
       "jsr:@std/cli@^1.0.0": "jsr:@std/cli@1.0.0",
+      "jsr:@std/csv": "jsr:@std/csv@0.224.3",
+      "jsr:@std/csv@^0.224.3": "jsr:@std/csv@0.224.3",
+      "jsr:@std/fmt@^0.225.6": "jsr:@std/fmt@0.225.6",
       "jsr:@std/internal@^1.0.1": "jsr:@std/internal@1.0.1",
       "jsr:@std/path": "jsr:@std/path@1.0.1",
+      "jsr:@std/streams@^0.224.4": "jsr:@std/streams@0.224.5",
+      "jsr:@std/yaml": "jsr:@std/yaml@0.224.3",
+      "jsr:@std/yaml@^0.224.3": "jsr:@std/yaml@0.224.3",
+      "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:dayjs@^1.11.12": "npm:dayjs@1.11.12",
       "npm:fastest-levenshtein@^1.0.16": "npm:fastest-levenshtein@1.0.16",
       "npm:supermemo@^2.0.17": "npm:supermemo@2.0.17"
@@ -17,17 +25,42 @@
           "jsr:@std/internal@^1.0.1"
         ]
       },
+      "@std/bytes@1.0.2": {
+        "integrity": "fbdee322bbd8c599a6af186a1603b3355e59a5fb1baa139f8f4c3c9a1b3e3d57"
+      },
       "@std/cli@1.0.0": {
         "integrity": "3c38f1da21bff0d25a9e6d97139ef2eb9ba334b5910da92c0169b44f38655f08"
+      },
+      "@std/csv@0.224.3": {
+        "integrity": "cf9cb88954a029b9997a613f67771d39b4d1602c8ea1a289328c89b48460fae3",
+        "dependencies": [
+          "jsr:@std/streams@^0.224.4"
+        ]
+      },
+      "@std/fmt@0.225.6": {
+        "integrity": "aba6aea27f66813cecfd9484e074a9e9845782ab0685c030e453a8a70b37afc8"
       },
       "@std/internal@1.0.1": {
         "integrity": "6f8c7544d06a11dd256c8d6ba54b11ed870aac6c5aeafff499892662c57673e6"
       },
       "@std/path@1.0.1": {
         "integrity": "e061ff02c28481ca49e3a14981875c345e9fc7e973190672782cd0ac8af70428"
+      },
+      "@std/streams@0.224.5": {
+        "integrity": "bcde7818dd5460d474cdbd674b15f6638b9cd73cd64e52bd852fba2bd4d8ec91",
+        "dependencies": [
+          "jsr:@std/bytes@^1.0.0-rc.3"
+        ]
+      },
+      "@std/yaml@0.224.3": {
+        "integrity": "9da1ed0094f42ba24570b4d88a094b44a793ac7f2bc085c1939d3ac7e11cc0bb"
       }
     },
     "npm": {
+      "@types/node@18.16.19": {
+        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
+        "dependencies": {}
+      },
       "dayjs@1.11.12": {
         "integrity": "sha512-Rt2g+nTbLlDWZTwwrIXjy9MeiZmSDI375FvZs72ngxx8PDC6YXOeR3q5LAuPzjZQxhiWdRKac7RKV+YyQYfYIg==",
         "dependencies": {}
@@ -43,6 +76,15 @@
     }
   },
   "remote": {
+    "https://deno.land/std@0.113.0/_util/assert.ts": "2f868145a042a11d5ad0a3c748dcf580add8a0dbc0e876eaa0026303a5488f58",
+    "https://deno.land/std@0.113.0/bytes/bytes_list.ts": "3bff6a09c72b2e0b1e92e29bd3b135053894196cca07a2bba842901073efe5cb",
+    "https://deno.land/std@0.113.0/bytes/equals.ts": "69f55fdbd45c71f920c1a621e6c0865dc780cd8ae34e0f5e55a9497b70c31c1b",
+    "https://deno.land/std@0.113.0/bytes/mod.ts": "fedb80b8da2e7ad8dd251148e65f92a04c73d6c5a430b7d197dc39588c8dda6f",
+    "https://deno.land/std@0.113.0/encoding/csv.ts": "ff71dae0424db6ac38e5faca8dc6fa4c3f5eb501b0e0594c58f2140581311eba",
+    "https://deno.land/std@0.113.0/encoding/csv_stringify.ts": "f9fe4889f1b2987c8640b4695d2d8836a978d034708ca90a850d3ec6b800d9ba",
+    "https://deno.land/std@0.113.0/io/buffer.ts": "a587093277c889ded709a933cd7d5b6285978275b2015a7cf9c8a3caad464236",
+    "https://deno.land/std@0.113.0/io/readers.ts": "17403919724fef2f343c88555606368868a5c752a1099ad801f6a381c170f62d",
+    "https://deno.land/std@0.113.0/textproto/mod.ts": "0549e31eacbb354b3b37951d0d24098b2cd0caaf9a6a3a67a0255d7728141522",
     "https://deno.land/std@0.158.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",
     "https://deno.land/std@0.158.0/_util/os.ts": "8a33345f74990e627b9dfe2de9b040004b08ea5146c7c9e8fe9a29070d193934",
     "https://deno.land/std@0.158.0/encoding/base64.ts": "c57868ca7fa2fbe919f57f88a623ad34e3d970d675bdc1ff3a9d02bba7409db2",
@@ -175,7 +217,10 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/cli@^1.0.0",
+      "jsr:@std/csv@^0.224.3",
+      "jsr:@std/fmt@^0.225.6",
       "jsr:@std/path@^1.0.1",
+      "jsr:@std/yaml@^0.224.3",
       "npm:dayjs@^1.11.12",
       "npm:fastest-levenshtein@^1.0.16",
       "npm:supermemo@^2.0.17"
