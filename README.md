@@ -3,7 +3,11 @@
 ![](https://github.com/ayakovlenko/termilingo/actions/workflows/test.yaml/badge.svg)
 [![](https://coveralls.io/repos/github/ayakovlenko/termilingo/badge.svg?branch=main)](https://coveralls.io/github/ayakovlenko/termilingo?branch=main)
 
+The app is written in TypeScript and uses Deno as a TypeScript runtime. To use it, install Deno first: https://docs.deno.com/runtime/manual/getting_started/installation/
+
 ## Run
+
+Run with an example deck:
 
 ```sh
 deno task run --deck example-deck.yaml
