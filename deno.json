@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV src/cli.ts"
+    "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV src/cli.ts",
+    "test-lcov": "./scripts/test-lcov.sh"
   },
   "imports": {
     "@std/cli": "jsr:@std/cli@^1.0.0",
