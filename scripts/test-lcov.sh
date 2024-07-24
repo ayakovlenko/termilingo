@@ -2,4 +2,4 @@
 set -eax
 
 deno test --coverage=./cov_profile src/
-deno coverage ./cov_profile --html
+deno coverage --lcov ./cov_profile > cov_profile/cov.lcov
