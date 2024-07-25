@@ -1,11 +1,30 @@
-# termilingo
+# Termilingo
 
 ![](https://github.com/ayakovlenko/termilingo/actions/workflows/test.yaml/badge.svg)
 [![](https://coveralls.io/repos/github/ayakovlenko/termilingo/badge.svg?branch=main)](https://coveralls.io/github/ayakovlenko/termilingo?branch=main)
 
+Termilingo is a spaced repetition flashcard app designed for use in the
+terminal.
+
 The app is written in TypeScript and uses Deno as a TypeScript runtime. To use
-it, install Deno first:
+it, you need install Deno first:
 https://docs.deno.com/runtime/manual/getting_started/installation/
+
+Termilingo uses a simple deck format to create flashcards:
+
+```yaml
+cards:
+  - f: Front side
+    b: Back side
+  - f: Front side
+    b: Back side
+```
+
+# Scoring system
+
+Termilingo does not rely on self-assessed scores. Instead, it uses an automated
+performance scoring system based on the Levenshtein ratio between the correct
+answer and the answer that you type.
 
 ## Run
 
