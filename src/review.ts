@@ -52,26 +52,27 @@ function newReviewItem(flashcard: Card): ReviewItem {
 }
 
 function score2grade(score: number): SuperMemoGrade {
-  let grade: SuperMemoGrade;
-  switch (score) {
-    case 1:
-      grade = 5;
-      break;
-    default:
-      if (score < 0.20) {
-        grade = 0;
-      } else if (score < 0.40) {
-        grade = 1;
-      } else if (score < 0.60) {
-        grade = 2;
-      } else if (score < 0.80) {
-        grade = 3;
-      } else {
-        grade = 4;
-      }
+  if (score < 0.50) {
+    return 0;
   }
 
-  return grade;
+  if (score < 0.70) {
+    return 1;
+  }
+
+  if (score < 0.80) {
+    return 2;
+  }
+
+  if (score < 0.90) {
+    return 3;
+  }
+
+  if (score < 1.00) {
+    return 4;
+  }
+
+  return 5;
 }
 
 function practice(reviewItem: ReviewItem, grade: SuperMemoGrade): ReviewItem {
