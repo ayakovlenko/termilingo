@@ -10,7 +10,7 @@ The app is written in TypeScript and uses Deno as a TypeScript runtime. To use
 it, you need install Deno first:
 https://docs.deno.com/runtime/manual/getting_started/installation/
 
-Termilingo uses a simple deck format to create flashcards:
+It uses a simple deck format to create flashcards:
 
 ```yaml
 cards:
@@ -20,23 +20,14 @@ cards:
     b: Back side
 ```
 
-# Scoring system
+## Scoring system
 
 Termilingo does not rely on self-assessed scores. Instead, it uses an automated
 performance scoring system based on the Levenshtein ratio between the correct
 answer and the answer that you type.
 
-## Run
-
-Run with an example deck:
-
-```sh
-deno task run --deck example-deck.yaml
-```
-
-## Grading
-
-Score to SM2 grade conversion:
+Since Termilingo relies on SM2 algorithm, the score is then converted to SM2
+grade according to the following rules:
 
 | Score range         | Grade |
 | ------------------- | ----- |
@@ -47,7 +38,7 @@ Score to SM2 grade conversion:
 | 0.90 ≤ score < 1.00 | 4     |
 | score = 1.00        | 5     |
 
-![](./docs/score2grade-plot.png)
+<img src="./docs/score2grade-plot.png" width="50%">
 
 <details>
 
@@ -88,6 +79,19 @@ plt.show()
 ```
 
 </details>
+
+## Quickstart
+
+Run with an example deck:
+
+```sh
+deno task run --deck example-deck.yaml
+```
+
+Provide a path to your own deck and start practicing.
+
+On the first run, the app will create a complimentary review file following a
+convention `<deck-name>.review.yaml` to keep track of the state.
 
 ## Tools
 
