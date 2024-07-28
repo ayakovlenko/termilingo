@@ -6,8 +6,8 @@
 Termilingo is a spaced repetition flashcard app designed for use in the
 terminal.
 
-The app is written in TypeScript and uses Deno as a TypeScript runtime. To use
-it, you need install Deno first:
+The app is written in TypeScript and uses Deno as a TypeScript runtime. In order
+to use it, you need install Deno first:
 https://docs.deno.com/runtime/manual/getting_started/installation/
 
 It uses a simple deck format to create flashcards:
@@ -24,7 +24,7 @@ cards:
 
 Termilingo does not rely on self-assessed scores. Instead, it uses an automated
 performance scoring system based on the Levenshtein ratio between the correct
-answer and the answer that you type.
+answer and the answer that you have typed.
 
 Since Termilingo relies on SM2 algorithm, the score is then converted to SM2
 grade according to the following rules:
