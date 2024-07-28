@@ -1,17 +1,33 @@
-# termilingo
+# Termilingo
 
 ![](https://github.com/ayakovlenko/termilingo/actions/workflows/test.yaml/badge.svg)
 [![](https://coveralls.io/repos/github/ayakovlenko/termilingo/badge.svg?branch=main)](https://coveralls.io/github/ayakovlenko/termilingo?branch=main)
 
-## Run
+Termilingo is a spaced repetition flashcard app designed for use in the
+terminal.
 
-```sh
-deno task run --deck example-deck.yaml
+The app is written in TypeScript and uses Deno as a TypeScript runtime. In order
+to use it, you need install Deno first:
+https://docs.deno.com/runtime/manual/getting_started/installation/
+
+It uses a simple deck format to create flashcards:
+
+```yaml
+cards:
+  - f: Front side
+    b: Back side
+  - f: Front side
+    b: Back side
 ```
 
-## Grading
+## Scoring system
 
-Score to SM2 grade conversion:
+Termilingo does not rely on self-assessed scores. Instead, it uses an automated
+performance scoring system based on the Levenshtein ratio between the correct
+answer and the answer that you have typed.
+
+Since Termilingo relies on SM2 algorithm, the score is then converted to SM2
+grade according to the following rules:
 
 | Score range         | Grade |
 | ------------------- | ----- |
@@ -22,7 +38,7 @@ Score to SM2 grade conversion:
 | 0.90 ≤ score < 1.00 | 4     |
 | score = 1.00        | 5     |
 
-![](./docs/score2grade-plot.png)
+<img src="./docs/score2grade-plot.png" width="50%">
 
 <details>
 
@@ -63,6 +79,19 @@ plt.show()
 ```
 
 </details>
+
+## Quickstart
+
+Run with an example deck:
+
+```sh
+deno task run --deck example-deck.yaml
+```
+
+Provide a path to your own deck and start practicing.
+
+On the first run, the app will create a complimentary review file following a
+convention `<deck-name>.review.yaml` to keep track of the state.
 
 ## Tools
 
