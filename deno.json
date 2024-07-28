@@ -1,11 +1,15 @@
 {
   "tasks": {
     "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV src/cli.ts",
+    "brainscape-importer": "deno run --allow-read src/tools/brainscape/importer.ts",
     "test-lcov": "./scripts/test-lcov.sh"
   },
   "imports": {
     "@std/cli": "jsr:@std/cli@^1.0.0",
+    "@std/csv": "jsr:@std/csv@^0.224.3",
+    "@std/fmt": "jsr:@std/fmt@^0.225.6",
     "@std/path": "jsr:@std/path@^1.0.1",
+    "@std/yaml": "jsr:@std/yaml@^0.224.3",
     "dayjs": "npm:dayjs@^1.11.12",
     "fastest-levenshtein": "npm:fastest-levenshtein@^1.0.16",
     "supermemo": "npm:supermemo@^2.0.17"

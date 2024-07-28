@@ -18,6 +18,6 @@ async function loadDeck(filename: string): Promise<Card[]> {
   return cards.map(({ f, b }) => ({ front: f, back: b }));
 }
 
-export type { Card };
+export type { Card, CardYaml };
 
 export { loadDeck };

@@ -63,3 +63,13 @@ plt.show()
 ```
 
 </details>
+
+## Tools
+
+### Brainscape importer
+
+To convert a CSV exported from Brainscape, run:
+
+```sh
+deno task brainscape-importer
+```
