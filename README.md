@@ -64,7 +64,6 @@ plt.show()
 
 </details>
 
-
 ## Tools
 
 ### Brainscape importer
@@ -72,5 +71,5 @@ plt.show()
 To convert a CSV exported from Brainscape, run:
 
 ```sh
-deno run --allow-read src/brainscape-importer.ts deck.csv
+deno task brainscape-importer
 ```
