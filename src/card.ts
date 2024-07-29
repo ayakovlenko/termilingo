@@ -5,12 +5,12 @@ interface CardYaml {
   b: string;
 }
 
-interface Card {
+interface TermilingoCard {
   front: string;
   back: string;
 }
 
-async function loadDeck(filename: string): Promise<Card[]> {
+async function loadDeck(filename: string): Promise<TermilingoCard[]> {
   const s = await Deno.readTextFile(filename);
 
   const { cards } = parseYaml(s) as { cards: CardYaml[] };
@@ -18,6 +18,6 @@ async function loadDeck(filename: string): Promise<Card[]> {
   return cards.map(({ f, b }) => ({ front: f, back: b }));
 }
 
-export type { Card, CardYaml };
+export type { TermilingoCard, CardYaml };
 
 export { loadDeck };

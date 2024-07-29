@@ -1,10 +1,8 @@
-import dayjs from "dayjs";
-import { supermemo, SuperMemoGrade, SuperMemoItem } from "supermemo";
-import { Card } from "./card.ts";
+import { type Card, createEmptyCard, type Grade, Rating } from "ts-fsrs";
+import { TermilingoCard } from "./card.ts";
 import { parseYaml, stringifyYaml } from "./deps.ts";
 
-interface ReviewItem extends Card, SuperMemoItem {
-  dueDate: string;
+interface ReviewItem extends TermilingoCard, Card {
   skipped?: number;
 }
 
@@ -41,41 +39,29 @@ async function saveReviews(
   await Deno.writeTextFile(filename, stringifyYaml(sortedReviews));
 }
 
-function newReviewItem(flashcard: Card): ReviewItem {
-  return {
-    ...flashcard,
-    interval: 0,
-    repetition: 0,
-    efactor: 2.5,
-    dueDate: dayjs(Date.now()).toISOString(),
-  };
+function newReviewItem(flashcard: TermilingoCard): ReviewItem {
+  return createEmptyCard(new Date(), (card) => {
+    return { ...flashcard, ...card };
+  });
 }
 
-function score2grade(score: number): SuperMemoGrade {
+function score2grade(score: number): Grade {
   if (score < 0.50) {
-    return 0;
+    return Rating.Again;
   }
 
-  if (score < 0.70) {
-    return 1;
-  }
-
-  if (score < 0.80) {
-    return 2;
-  }
-
-  if (score < 0.90) {
-    return 3;
+  if (score < 0.8) {
+    return Rating.Hard;
   }
 
   if (score < 1.00) {
-    return 4;
+    return Rating.Good;
   }
 
-  return 5;
+  return Rating.Easy;
 }
 
-function practice(reviewItem: ReviewItem, grade: SuperMemoGrade): ReviewItem {
+function practice(reviewItem: ReviewItem, grade: Rating): ReviewItem {
   const { interval, repetition, efactor } = supermemo(reviewItem, grade);
 
   const dueDate = dayjs(Date.now()).add(interval, "day").toISOString();
@@ -85,4 +71,5 @@ function practice(reviewItem: ReviewItem, grade: SuperMemoGrade): ReviewItem {
 
 export type { ReviewItem };
 
-export { loadReviews, newReviewItem, practice, saveReviews, score2grade };
+  export { loadReviews, newReviewItem, practice, saveReviews, score2grade };
+

@@ -12,6 +12,10 @@ import {
 } from "./review.ts";
 import { ratio } from "./levenshtein.ts";
 import { shuffle } from "./collections.ts";
+import { fsrs, generatorParameters } from "ts-fsrs";
+
+const params = generatorParameters({ maximum_interval: 31 });
+const _f = fsrs(params);
 
 const args = parseArgs(Deno.args) as {
   deck: string;
@@ -81,7 +85,7 @@ await saveReviews(reviewfile, reviewMap);
 // get items for review
 const dueDateItems: ReviewItem[] = [];
 for (const review of reviewMap.values()) {
-  if (new Date(review.dueDate) < new Date()) {
+  if (new Date(review.due) < new Date()) {
     dueDateItems.push(review);
   }
 }
