@@ -1,4 +1,4 @@
-import { assertEquals } from "./deps.test.ts";
+import { assertEquals } from "@std/assert";
 import { score2grade } from "./review.ts";
 
 Deno.test(async function test_score2grade(t) {

@@ -1,4 +1,4 @@
-import { parseYaml } from "./deps.ts";
+import { parse as parseYaml } from "@std/yaml";
 
 interface CardYaml {
   f: string;

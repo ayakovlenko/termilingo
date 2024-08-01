@@ -1,4 +1,4 @@
-import { assertEquals } from "../../deps.test.ts";
+import { assertEquals } from "@std/assert";
 import { parseBrainscapeCsv } from "./mod.ts";
 
 Deno.test(async function testParseBrainscapeCsv(t) {

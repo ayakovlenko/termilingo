@@ -1,5 +1,5 @@
 import { CardYaml } from "../../card.ts";
-import { parseCsv } from "../../deps.ts";
+import { parse as parseCsv } from "@std/csv";
 
 export type BrainscapeCard = {
   Question: string;

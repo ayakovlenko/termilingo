@@ -1,7 +1,10 @@
+import { Input } from "@cliffy/prompt";
 import { parseArgs } from "@std/cli/parse-args";
-import { basename, dirname, join } from "jsr:@std/path";
+import { green, red, yellow } from "@std/fmt/colors";
+import { basename, dirname, join } from "@std/path";
 import { loadDeck } from "./card.ts";
-import { green, Input, red, yellow } from "./deps.ts";
+import { shuffle } from "./collections.ts";
+import { ratio } from "./levenshtein.ts";
 import {
   loadReviews,
   newReviewItem,
@@ -10,8 +13,6 @@ import {
   saveReviews,
   score2grade,
 } from "./review.ts";
-import { ratio } from "./levenshtein.ts";
-import { shuffle } from "./collections.ts";
 
 const args = parseArgs(Deno.args) as {
   deck: string;
