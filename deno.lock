@@ -3,6 +3,7 @@
   "packages": {
     "specifiers": {
       "jsr:@std/assert": "jsr:@std/assert@1.0.0",
+      "jsr:@std/assert@^1.0.1": "jsr:@std/assert@1.0.1",
       "jsr:@std/bytes@^1.0.0-rc.3": "jsr:@std/bytes@1.0.2",
       "jsr:@std/cli@^1.0.0": "jsr:@std/cli@1.0.0",
       "jsr:@std/csv": "jsr:@std/csv@0.224.3",
@@ -10,6 +11,7 @@
       "jsr:@std/fmt@^0.225.6": "jsr:@std/fmt@0.225.6",
       "jsr:@std/internal@^1.0.1": "jsr:@std/internal@1.0.1",
       "jsr:@std/path": "jsr:@std/path@1.0.1",
+      "jsr:@std/path@^1.0.2": "jsr:@std/path@1.0.2",
       "jsr:@std/streams@^0.224.4": "jsr:@std/streams@0.224.5",
       "jsr:@std/yaml": "jsr:@std/yaml@0.224.3",
       "jsr:@std/yaml@^0.224.3": "jsr:@std/yaml@0.224.3",
@@ -21,6 +23,12 @@
     "jsr": {
       "@std/assert@1.0.0": {
         "integrity": "0e4f6d873f7f35e2a1e6194ceee39686c996b9e5d134948e644d35d4c4df2008",
+        "dependencies": [
+          "jsr:@std/internal@^1.0.1"
+        ]
+      },
+      "@std/assert@1.0.1": {
+        "integrity": "13590ef8e5854f59e4ad252fd987e83239a1bf1f16cb9c69c1d123ebb807a75b",
         "dependencies": [
           "jsr:@std/internal@^1.0.1"
         ]
@@ -45,6 +53,9 @@
       },
       "@std/path@1.0.1": {
         "integrity": "e061ff02c28481ca49e3a14981875c345e9fc7e973190672782cd0ac8af70428"
+      },
+      "@std/path@1.0.2": {
+        "integrity": "a452174603f8c620bd278a380c596437a9eef50c891c64b85812f735245d9ec7"
       },
       "@std/streams@0.224.5": {
         "integrity": "bcde7818dd5460d474cdbd674b15f6638b9cd73cd64e52bd852fba2bd4d8ec91",
@@ -216,10 +227,11 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@std/assert@^1.0.1",
       "jsr:@std/cli@^1.0.0",
       "jsr:@std/csv@^0.224.3",
       "jsr:@std/fmt@^0.225.6",
-      "jsr:@std/path@^1.0.1",
+      "jsr:@std/path@^1.0.2",
       "jsr:@std/yaml@^0.224.3",
       "npm:dayjs@^1.11.12",
       "npm:fastest-levenshtein@^1.0.16",

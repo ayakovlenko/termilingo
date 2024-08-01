@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { supermemo, SuperMemoGrade, SuperMemoItem } from "supermemo";
 import { Card } from "./card.ts";
-import { parseYaml, stringifyYaml } from "./deps.ts";
+import { parse as parseYaml, stringify as stringifyYaml } from "@std/yaml";
 
 interface ReviewItem extends Card, SuperMemoItem {
   dueDate: string;

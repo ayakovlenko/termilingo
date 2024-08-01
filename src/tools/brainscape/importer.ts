@@ -1,4 +1,4 @@
-import { stringifyYaml } from "../../deps.ts";
+import { stringify as stringifyYaml } from "@std/yaml";
 import { parseBrainscapeCsv } from "./mod.ts";
 
 async function main(args: string[]): Promise<void> {

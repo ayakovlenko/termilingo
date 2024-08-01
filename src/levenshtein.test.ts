@@ -1,4 +1,4 @@
-import { assertAlmostEquals, assertEquals } from "./deps.test.ts";
+import { assertAlmostEquals, assertEquals } from "@std/assert";
 import { ratio } from "./levenshtein.ts";
 
 Deno.test(async function testLevenshteinRation(t) {
