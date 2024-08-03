@@ -2,7 +2,7 @@ import { Input } from "@cliffy/prompt";
 import { parseArgs } from "@std/cli/parse-args";
 import { green, red, yellow } from "@std/fmt/colors";
 import { basename, dirname, join } from "@std/path";
-import { loadDeck } from "./card.ts";
+import { loadDeck } from "./deck.ts";
 import { shuffle } from "./collections.ts";
 import { ratio } from "./levenshtein.ts";
 import {

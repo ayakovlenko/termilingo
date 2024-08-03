@@ -12,13 +12,15 @@ https://docs.deno.com/runtime/manual/getting_started/installation/
 
 It uses a simple deck format to create flashcards:
 
-```yaml
-cards:
-  - f: Front side
-    b: Back side
-  - f: Front side
-    b: Back side
+```csv
+Question,Answer
+Front side,Back side
+Front side,Back side
 ```
+
+> [!TIP]\
+> This is the format of Brainscape CSV export, so they can be used by Termilingo
+> directly.
 
 ## Scoring system
 
@@ -85,20 +87,10 @@ plt.show()
 Run with an example deck:
 
 ```sh
-deno task run --deck example-deck.yaml
+deno task run --deck example-swedish.csv
 ```
 
 Provide a path to your own deck and start practicing.
 
 On the first run, the app will create a complimentary review file following a
 convention `<deck-name>.review.yaml` to keep track of the state.
-
-## Tools
-
-### Brainscape importer
-
-To convert a CSV exported from Brainscape, run:
-
-```sh
-deno task brainscape-importer
-```
