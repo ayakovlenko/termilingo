@@ -1,8 +1,7 @@
 import { Input } from "@cliffy/prompt";
 import { parseArgs } from "@std/cli/parse-args";
 import { green, red, yellow } from "@std/fmt/colors";
-import { basename, dirname, join } from "@std/path";
-import { loadDeck } from "./card.ts";
+import { loadDeck } from "./deck.ts";
 import { shuffle } from "./collections.ts";
 import { ratio } from "./levenshtein.ts";
 import {
@@ -13,16 +12,14 @@ import {
   saveReviews,
   score2grade,
 } from "./review.ts";
+import { deriveReviewfile } from "./pathutil.ts";
 
 const args = parseArgs(Deno.args) as {
   deck: string;
 };
 
 const deckfile = args.deck;
-const reviewfile = join(
-  dirname(deckfile),
-  basename(deckfile).replaceAll(".yaml", "") + ".review.yaml",
-);
+const reviewfile = deriveReviewfile(deckfile);
 
 console.log({ deckfile, reviewfile });
 
