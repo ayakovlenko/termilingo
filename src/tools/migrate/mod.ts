@@ -1,5 +1,6 @@
-import { parse as parseYaml } from "@std/yaml";
 import { stringify as stringifyCsv } from "@std/csv";
+import { extname } from "@std/path";
+import { parse as parseYaml } from "@std/yaml";
 import { Card } from "../../card.ts";
 
 interface CardYaml {
@@ -29,17 +30,24 @@ function makeCsvDeck(cards: Card[]): string {
   return stringifyCsv(data, { columns });
 }
 
-async function migrate(filename: string): Promise<void> {
+async function migrateDeck(filename: string): Promise<string | undefined> {
+  const ext = extname(filename);
+  if (ext != ".yaml") {
+    return;
+  }
+
   const deck = await loadYamlDeck(filename);
 
   const csvContent = makeCsvDeck(deck);
 
+  const csvDeckFilename = filename.replace(".yaml", ".csv");
+
   await Deno.writeTextFile(
-    filename.replace(".yaml", ".csv"),
+    csvDeckFilename,
     csvContent,
   );
 
-  return;
+  return csvDeckFilename;
 }
 
-export { makeCsvDeck, migrate };
+export { migrateDeck };

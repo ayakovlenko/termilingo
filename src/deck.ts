@@ -8,6 +8,8 @@ async function loadDeck(filename: string): Promise<Card[]> {
   switch (ext) {
     case ".csv":
       return await loadCsvDeck(filename);
+    case ".yaml":
+      throw `.yaml decks are no longer supported; run to migrate: deno task migrate ${filename}`;
     default:
       throw `unsupported extension: ${ext}`;
   }

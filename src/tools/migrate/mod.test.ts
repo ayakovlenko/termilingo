@@ -1,42 +1,45 @@
 import { assertEquals } from "@std/assert";
-import { Card } from "../../card.ts";
-import { makeCsvDeck } from "./mod.ts";
+import { join } from "@std/path";
+import { migrateDeck } from "./mod.ts";
 
 Deno.test("test makeCsvDeck", async (t) => {
-  await t.step("simple", () => {
-    // given
-    const cards: Card[] = [
-      {
-        front: "f",
-        back: "b",
-      },
-    ];
+  const dir = await Deno.makeTempDir({
+    prefix: "termilingo_",
+  });
 
-    // when
-    const have = makeCsvDeck(cards);
-
-    // then
-    const want = `Question,Answer\r
-f,b\r
-`;
+  await t.step("no migration needed", async () => {
+    const have = await migrateDeck("filename.csv");
+    const want = undefined;
 
     assertEquals(have, want);
   });
 
-  await t.step("commas", () => {
+  await t.step("migrate yaml to csv", async () => {
     // given
-    const cards: Card[] = [
-      {
-        front: "a, b",
-        back: "c",
-      },
-    ];
+    const yamlContent = `---
+cards:
+  - f: f
+    b: b
+  - f: a, b
+    b: c
+`;
+
+    const filename = join(dir, "deck.yaml");
 
     // when
-    const have = makeCsvDeck(cards);
+    await Deno.writeTextFile(filename, yamlContent);
+
+    const csvDeckFilenameHave = await migrateDeck(filename);
 
     // then
+    const csvDeckFilenameWant = join(dir, "deck.csv");
+
+    assertEquals(csvDeckFilenameHave, csvDeckFilenameWant);
+
+    const have = await Deno.readTextFile(join(dir, "deck.csv"));
+
     const want = `Question,Answer\r
+f,b\r
 "a, b",c\r
 `;
 
