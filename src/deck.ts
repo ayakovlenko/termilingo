@@ -1,6 +1,6 @@
+import { parse as parseCsv } from "@std/csv";
 import { extname } from "@std/path";
 import { Card } from "./card.ts";
-import { parse as parseCsv } from "@std/csv";
 
 async function loadDeck(filename: string): Promise<Card[]> {
   const ext = extname(filename);
