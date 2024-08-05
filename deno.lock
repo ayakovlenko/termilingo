@@ -17,8 +17,7 @@
       "jsr:@std/yaml@^0.224.3": "jsr:@std/yaml@0.224.3",
       "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:dayjs@^1.11.12": "npm:dayjs@1.11.12",
-      "npm:fastest-levenshtein@^1.0.16": "npm:fastest-levenshtein@1.0.16",
-      "npm:supermemo@^2.0.17": "npm:supermemo@2.0.17"
+      "npm:fastest-levenshtein@^1.0.16": "npm:fastest-levenshtein@1.0.16"
     },
     "jsr": {
       "@std/assert@1.0.0": {
@@ -78,10 +77,6 @@
       },
       "fastest-levenshtein@1.0.16": {
         "integrity": "sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==",
-        "dependencies": {}
-      },
-      "supermemo@2.0.17": {
-        "integrity": "sha512-c/BMAkG+IDYtAP1AR97DVU4x4gs8vfvLA4ejND7lHKdzjaAWwxixtcZjnQNfcyAKfZn2ovIYKJAGpTG45dr8ug==",
         "dependencies": {}
       }
     }
@@ -234,8 +229,7 @@
       "jsr:@std/path@^1.0.2",
       "jsr:@std/yaml@^0.224.3",
       "npm:dayjs@^1.11.12",
-      "npm:fastest-levenshtein@^1.0.16",
-      "npm:supermemo@^2.0.17"
+      "npm:fastest-levenshtein@^1.0.16"
     ]
   }
 }
