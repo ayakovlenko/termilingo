@@ -1,19 +1,21 @@
+import { parse as parseYaml, stringify as stringifyYaml } from "@std/yaml";
 import dayjs from "dayjs";
 import { supermemo, SuperMemoGrade, SuperMemoItem } from "supermemo";
 import { Card } from "./card.ts";
-import { parse as parseYaml, stringify as stringifyYaml } from "@std/yaml";
 
 interface ReviewItem extends Card, SuperMemoItem {
   dueDate: string;
   skipped?: number;
 }
 
+// TODO: split loadReviews and filterReviews
 async function loadReviews(
   filename: string,
 ): Promise<Map<string, ReviewItem>> {
   const s = await Deno.readTextFile(filename);
 
-  const reviews = parseYaml(s) as ReviewItem[];
+  let reviews = parseYaml(s) as ReviewItem[];
+  reviews = reviews.filter((item) => !item.skipped || item.skipped <= 3);
 
   const ret: Map<string, ReviewItem> = new Map();
   for (const review of reviews) {

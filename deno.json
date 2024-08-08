@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV src/cli.ts",
+    "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV --watch src/cli.ts",
     "migrate": "deno run --allow-read --allow-write src/tools/migrate.ts",
     "test": "./scripts/test.sh",
     "test-lcov": "./scripts/test-lcov.sh"
