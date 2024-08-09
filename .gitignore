@@ -1,2 +1,5 @@
 .idea/
 cov_profile/
+
+.~lock*
+*.review.yaml
