@@ -1,7 +1,7 @@
-import dayjs from "dayjs";
 import { supermemo, SuperMemoGrade, SuperMemoItem } from "supermemo";
 import { Card } from "./card.ts";
 import { parse as parseYaml, stringify as stringifyYaml } from "@std/yaml";
+import { addDays } from "./dateutil.ts";
 
 interface ReviewItem extends Card, SuperMemoItem {
   dueDate: string;
@@ -47,7 +47,7 @@ function newReviewItem(flashcard: Card): ReviewItem {
     interval: 0,
     repetition: 0,
     efactor: 2.5,
-    dueDate: dayjs(Date.now()).toISOString(),
+    dueDate: new Date(Date.now()).toISOString(),
   };
 }
 
@@ -78,7 +78,7 @@ function score2grade(score: number): SuperMemoGrade {
 function practice(reviewItem: ReviewItem, grade: SuperMemoGrade): ReviewItem {
   const { interval, repetition, efactor } = supermemo(reviewItem, grade);
 
-  const dueDate = dayjs(Date.now()).add(interval, "day").toISOString();
+  const dueDate = addDays(new Date(Date.now()), interval).toISOString();
 
   return { ...reviewItem, interval, repetition, efactor, dueDate };
 }

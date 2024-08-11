@@ -1,10 +1,10 @@
-import { Input } from "@cliffy/prompt";
 import { parseArgs } from "@std/cli/parse-args";
 import { green, red, yellow } from "@std/fmt/colors";
-import { basename, dirname, join } from "@std/path";
-import { loadDeck } from "./card.ts";
+import { Input } from "./cmd/cli/input.ts";
 import { shuffle } from "./collections.ts";
+import { loadDeck } from "./deck.ts";
 import { ratio } from "./levenshtein.ts";
+import { deriveReviewfile } from "./pathutil.ts";
 import {
   loadReviews,
   newReviewItem,
@@ -19,10 +19,7 @@ const args = parseArgs(Deno.args) as {
 };
 
 const deckfile = args.deck;
-const reviewfile = join(
-  dirname(deckfile),
-  basename(deckfile).replaceAll(".yaml", "") + ".review.yaml",
-);
+const reviewfile = deriveReviewfile(deckfile);
 
 console.log({ deckfile, reviewfile });
 
@@ -94,7 +91,7 @@ console.log("To review:", dueDateItems.length);
 for (const review of dueDateItems) {
   console.log(review.front);
 
-  let answer: string = await Input.prompt("");
+  let answer: string = await Input.question("> ");
 
   // trip and replace all multi-space characters with just one
   answer = answer.replaceAll(" +", " ").trim();

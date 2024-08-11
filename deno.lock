@@ -15,9 +15,7 @@
       "jsr:@std/streams@^0.224.4": "jsr:@std/streams@0.224.5",
       "jsr:@std/yaml": "jsr:@std/yaml@0.224.3",
       "jsr:@std/yaml@^0.224.3": "jsr:@std/yaml@0.224.3",
-      "npm:@types/node": "npm:@types/node@18.16.19",
-      "npm:dayjs@^1.11.12": "npm:dayjs@1.11.12",
-      "npm:fastest-levenshtein@^1.0.16": "npm:fastest-levenshtein@1.0.16"
+      "npm:@types/node": "npm:@types/node@18.16.19"
     },
     "jsr": {
       "@std/assert@1.0.0": {
@@ -69,10 +67,6 @@
     "npm": {
       "@types/node@18.16.19": {
         "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
-        "dependencies": {}
-      },
-      "dayjs@1.11.12": {
-        "integrity": "sha512-Rt2g+nTbLlDWZTwwrIXjy9MeiZmSDI375FvZs72ngxx8PDC6YXOeR3q5LAuPzjZQxhiWdRKac7RKV+YyQYfYIg==",
         "dependencies": {}
       },
       "fastest-levenshtein@1.0.16": {
@@ -227,9 +221,7 @@
       "jsr:@std/csv@^0.224.3",
       "jsr:@std/fmt@^0.225.6",
       "jsr:@std/path@^1.0.2",
-      "jsr:@std/yaml@^0.224.3",
-      "npm:dayjs@^1.11.12",
-      "npm:fastest-levenshtein@^1.0.16"
+      "jsr:@std/yaml@^0.224.3"
     ]
   }
 }
