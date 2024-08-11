@@ -42,14 +42,12 @@ async function saveReviews(
 }
 
 function newReviewItem(flashcard: Card): ReviewItem {
-  const now = new Date(Date.now());
-
   return {
     ...flashcard,
     interval: 0,
     repetition: 0,
     efactor: 2.5,
-    dueDate: now.toISOString(),
+    dueDate: new Date(Date.now()).toISOString(),
   };
 }
 
@@ -80,9 +78,7 @@ function score2grade(score: number): SuperMemoGrade {
 function practice(reviewItem: ReviewItem, grade: SuperMemoGrade): ReviewItem {
   const { interval, repetition, efactor } = supermemo(reviewItem, grade);
 
-  const now = new Date(Date.now());
-
-  const dueDate = addDays(now, interval).toISOString();
+  const dueDate = addDays(new Date(Date.now()), interval).toISOString();
 
   return { ...reviewItem, interval, repetition, efactor, dueDate };
 }
