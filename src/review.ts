@@ -1,6 +1,7 @@
 import { supermemo, SuperMemoGrade, SuperMemoItem } from "supermemo";
 import { Card } from "./card.ts";
 import { parse as parseYaml, stringify as stringifyYaml } from "@std/yaml";
+import { addDays } from "./dateutil.ts";
 
 interface ReviewItem extends Card, SuperMemoItem {
   dueDate: string;
@@ -84,11 +85,6 @@ function practice(reviewItem: ReviewItem, grade: SuperMemoGrade): ReviewItem {
   const dueDate = addDays(now, interval).toISOString();
 
   return { ...reviewItem, interval, repetition, efactor, dueDate };
-}
-
-function addDays(date: Date, days: number): Date {
-  date.setDate(date.getDate() + days);
-  return date;
 }
 
 export type { ReviewItem };
