@@ -94,3 +94,13 @@ Provide a path to your own deck and start practicing.
 
 On the first run, the app will create a complimentary review file following a
 convention `<deck-name>.review.yaml` to keep track of the state.
+
+## Thanks
+
+The app is using an implementation of SM2 by @VienDinhCom.
+
+The package is copied into [./src/supermemo](./src/supermemo) with the intention
+of modifying it into SM2+ as described in the article by BlueRaja
+[here][sm2plus].
+
+[sm2plus]: https://www.blueraja.com/blog/477/a-better-spaced-repetition-learning-algorithm-sm2
