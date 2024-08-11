@@ -1,12 +1,11 @@
 {
   "tasks": {
-    "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV --watch src/cli.ts",
+    "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV,TERM src/cli.ts",
     "migrate": "deno run --allow-read --allow-write src/tools/migrate.ts",
     "test": "./scripts/test.sh",
     "test-lcov": "./scripts/test-lcov.sh"
   },
   "imports": {
-    "@cliffy/prompt": "https://deno.land/x/cliffy@v0.25.2/prompt/input.ts",
     "@std/assert": "jsr:@std/assert@^1.0.1",
     "@std/cli": "jsr:@std/cli@^1.0.0",
     "@std/csv": "jsr:@std/csv@^0.224.3",
