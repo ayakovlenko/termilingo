@@ -1,8 +1,6 @@
-import * as readline from "node:readline/promises";
-import { stdin as input, stdout as output } from "node:process";
-
 import { cleanupReviews } from "./cleanup.ts";
 import { parseAppArgs } from "./cmd/cli/args.ts";
+import { Input } from "./cmd/cli/input.ts";
 import { shuffle } from "./collections.ts";
 import { loadDeck } from "./deck.ts";
 import { ratio } from "./levenshtein.ts";
@@ -57,7 +55,7 @@ const prompt = readline.createInterface({
 for (const review of dueDateItems) {
   console.log(review.front);
 
-  const answer = await prompt.question(">>> ").then((s) => (
+  const answer = await Input.question(">>> ").then((s) => (
     // trim input and replace all multi-space characters with just one
     s.trim().replaceAll(" +", " ")
   ));
