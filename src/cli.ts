@@ -1,5 +1,5 @@
-import { parseArgs } from "@std/cli/parse-args";
-import { green, red, yellow } from "@std/fmt/colors";
+import { cleanupReviews } from "./cleanup.ts";
+import { parseAppArgs } from "./cmd/cli/args.ts";
 import { Input } from "./cmd/cli/input.ts";
 import { shuffle } from "./collections.ts";
 import { loadDeck } from "./deck.ts";
@@ -7,21 +7,22 @@ import { ratio } from "./levenshtein.ts";
 import { deriveReviewfile } from "./pathutil.ts";
 import {
   loadReviews,
-  newReviewItem,
   practice,
   ReviewItem,
   saveReviews,
   score2grade,
 } from "./review.ts";
 
-const args = parseArgs(Deno.args) as {
-  deck: string;
-};
+const {
+  debug,
+  deck: deckfile,
+} = parseAppArgs(Deno.args);
 
-const deckfile = args.deck;
 const reviewfile = deriveReviewfile(deckfile);
 
-console.log({ deckfile, reviewfile });
+if (debug) {
+  console.log({ deckfile, reviewfile });
+}
 
 const deck = await loadDeck(deckfile);
 
@@ -32,54 +33,12 @@ try {
   reviewMap = new Map();
 }
 
-// update old items
-const backCardSet = new Set<string>();
-for (const card of deck) {
-  backCardSet.add(card.back);
-}
-// remove those review items from reviewMap that are not in backCardSet
-for (const { front, back } of reviewMap.values()) {
-  if (backCardSet.has(back)) {
-    continue;
-  }
-
-  reviewMap.delete(front);
-  console.log(yellow("! " + front));
-}
-
-// add new items
-for (const card of deck) {
-  if (reviewMap.has(card.front)) {
-    continue;
-  }
-
-  reviewMap.set(card.front, newReviewItem(card));
-
-  console.log(green("+ " + card.front));
-}
-
-// delete old items
-//
-// build a set of current cards
-const frontCardSet = new Set<string>();
-for (const card of deck) {
-  frontCardSet.add(card.front);
-}
-// remove those review items from reviewMap that are not in frontCardSet
-for (const reviewItemKey of reviewMap.keys()) {
-  if (!frontCardSet.has(reviewItemKey)) {
-    reviewMap.delete(reviewItemKey);
-    console.log("- " + red(reviewItemKey));
-  }
-}
-
-// save cleanups
-await saveReviews(reviewfile, reviewMap);
+reviewMap = await cleanupReviews(reviewfile, deck, reviewMap);
 
 // get items for review
 const dueDateItems: ReviewItem[] = [];
 for (const review of reviewMap.values()) {
-  if (new Date(review.dueDate) < new Date()) {
+  if (new Date(review.dueDate) <= new Date()) {
     dueDateItems.push(review);
   }
 }
@@ -88,41 +47,69 @@ shuffle(dueDateItems);
 
 console.log("To review:", dueDateItems.length);
 
+const prompt = readline.createInterface({
+  input,
+  output,
+});
+
 for (const review of dueDateItems) {
   console.log(review.front);
 
-  let answer: string = await Input.question("> ");
+  const answer = await Input.question(">>> ").then((s) => (
+    // trim input and replace all multi-space characters with just one
+    s.trim().replaceAll(" +", " ")
+  ));
 
-  // trip and replace all multi-space characters with just one
-  answer = answer.replaceAll(" +", " ").trim();
+  switch (answer) {
+    case ":skip": {
+      if (!review.skipped) {
+        review.skipped = 0;
+      }
+      review.skipped += 1;
 
-  if (answer === ":skip") {
-    if (!review.skipped) {
-      review.skipped = 0;
+      reviewMap.set(review.front, review);
+      await saveReviews(reviewfile, reviewMap);
+
+      console.log("---");
+      console.log("🐇 skipped");
+      console.log("correct:", review.back);
+      console.log("---");
+      console.log();
+
+      continue;
     }
-    review.skipped += 1;
+    default: {
+      const score = ratio(review.back, answer);
 
-    reviewMap.set(review.front, review);
-    await saveReviews(reviewfile, reviewMap);
+      if (score === 1) {
+        console.log("---");
+        console.log("✅ Correct!");
+        console.log("---");
+        console.log();
+      } else {
+        console.log("---");
+        console.log("☑️ Wrong! Score:", formatPercentange(score));
+        console.log("---");
 
-    continue;
+        const want = review.back;
+
+        console.log("want:", want);
+        console.log("have:", answer);
+        console.log("---");
+        console.log();
+      }
+
+      reviewMap.set(review.front, practice(review, score2grade(score)));
+    }
   }
 
-  const score = ratio(review.back, answer);
-
-  if (score === 1) {
-    console.log("✅ Correct!");
-  } else {
-    console.log("☑️ Wrong! Score:", score);
-
-    const want = review.back;
-
-    console.log("---");
-    console.log("want:", want);
-    console.log("have:", answer);
-    console.log("---");
-  }
-
-  reviewMap.set(review.front, practice(review, score2grade(score)));
   await saveReviews(reviewfile, reviewMap);
+}
+
+prompt.close();
+
+// ---
+
+function formatPercentange(f: number): string {
+  return `${Math.round(f * 100)}%`;
 }
