@@ -1,7 +1,8 @@
+node_modules/
+
 .idea/
 cov_profile/
 
 *.review.yaml
 
 .DS_Store
-

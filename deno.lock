@@ -1,5 +1,5 @@
 {
-  "version": "4",
+  "version": "5",
   "specifiers": {
     "jsr:@std/assert@^1.0.1": "1.0.6",
     "jsr:@std/bytes@^1.0.0-rc.3": "1.0.2",
@@ -10,7 +10,8 @@
     "jsr:@std/path@^1.0.2": "1.0.6",
     "jsr:@std/streams@~0.224.4": "0.224.5",
     "jsr:@std/text@^1.0.7": "1.0.7",
-    "jsr:@std/yaml@~0.224.3": "0.224.3"
+    "jsr:@std/yaml@~0.224.3": "0.224.3",
+    "npm:supermemo@2.0.23": "2.0.23"
   },
   "jsr": {
     "@std/assert@1.0.6": {
@@ -53,6 +54,11 @@
       "integrity": "9da1ed0094f42ba24570b4d88a094b44a793ac7f2bc085c1939d3ac7e11cc0bb"
     }
   },
+  "npm": {
+    "supermemo@2.0.23": {
+      "integrity": "sha512-nmWfFf3opwJahxHHBS2k3FtBnK0Ii4LPZ8YrGqu9uoDDyftQodlRP3tGtWRo5h7dJWR6aSuJKuD8iiYbiOA9bw=="
+    }
+  },
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@^1.0.1",
@@ -62,6 +68,11 @@
       "jsr:@std/path@^1.0.2",
       "jsr:@std/text@^1.0.7",
       "jsr:@std/yaml@~0.224.3"
-    ]
+    ],
+    "packageJson": {
+      "dependencies": [
+        "npm:supermemo@2.0.23"
+      ]
+    }
   }
 }

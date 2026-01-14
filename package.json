@@ -1,0 +1,26 @@
+{
+  "name": "termilingo",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayakovlenko/termilingo.git"
+  },
+  "keywords": [
+    "cli",
+    "duolingo-clone",
+    "flashcards",
+    "language-learning",
+    "spaced-repetition",
+    "supermemo"
+  ],
+  "author": "Anton Iacovlenco",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ayakovlenko/termilingo/issues"
+  },
+  "homepage": "https://github.com/ayakovlenko/termilingo",
+  "dependencies": {
+    "supermemo": "2.0.23"
+  }
+}
