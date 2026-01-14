@@ -1,4 +1,4 @@
-import { levenshteinDistance } from "@std/text";
+import { levenshteinDistance } from "./levenshtein-distance.ts";
 
 // The function returns the Levenshtein ratio for the given strings. The
 // ratio is computed as follows and takes the value between 0 and 1 including:
@@ -6,10 +6,10 @@ import { levenshteinDistance } from "@std/text";
 // (sourceLength + targetLength - distance) / (sourceLength + targetLength)
 //
 // 1.0 means a perfect score; 0.0 means completely off target
-function ratio(src: string, dst: string): number {
+function levenshteinRatio(src: string, dst: string): number {
   const d = levenshteinDistance(src, dst);
 
   return (src.length + dst.length - d) / (src.length + dst.length);
 }
 
-export { ratio };
+export { levenshteinRatio };

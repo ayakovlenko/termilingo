@@ -3,7 +3,7 @@ import { green, red, yellow } from "@std/fmt/colors";
 import { Input } from "./cmd/cli/input.ts";
 import { shuffle } from "./collections.ts";
 import { loadDeck } from "./deck.ts";
-import { ratio } from "./levenshtein.ts";
+import { levenshteinRatio } from "./levenshtein-ratio.ts";
 import { deriveReviewfile } from "./pathutil.ts";
 import {
   loadReviews,
@@ -108,7 +108,7 @@ for (const review of dueDateItems) {
     continue;
   }
 
-  const score = ratio(review.back, answer);
+  const score = levenshteinRatio(review.back, answer);
 
   if (score === 1) {
     console.log("✅ Correct!");

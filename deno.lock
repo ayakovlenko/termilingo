@@ -9,7 +9,6 @@
     "jsr:@std/internal@^1.0.4": "1.0.4",
     "jsr:@std/path@^1.0.2": "1.0.6",
     "jsr:@std/streams@~0.224.4": "0.224.5",
-    "jsr:@std/text@^1.0.7": "1.0.7",
     "jsr:@std/yaml@~0.224.3": "0.224.3",
     "npm:supermemo@2.0.23": "2.0.23"
   },
@@ -47,9 +46,6 @@
         "jsr:@std/bytes"
       ]
     },
-    "@std/text@1.0.7": {
-      "integrity": "344a820af99fde81ae1d4f9ce586da3f47a58cda25ac4c4dd688166cf5ed97f1"
-    },
     "@std/yaml@0.224.3": {
       "integrity": "9da1ed0094f42ba24570b4d88a094b44a793ac7f2bc085c1939d3ac7e11cc0bb"
     }
@@ -66,7 +62,6 @@
       "jsr:@std/csv@~0.224.3",
       "jsr:@std/fmt@~0.225.6",
       "jsr:@std/path@^1.0.2",
-      "jsr:@std/text@^1.0.7",
       "jsr:@std/yaml@~0.224.3"
     ],
     "packageJson": {
