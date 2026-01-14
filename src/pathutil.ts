@@ -1,4 +1,4 @@
-import { basename, dirname, extname, join } from "@std/path";
+import { basename, dirname, extname, join } from "node:path";
 
 function deriveReviewfile(deckfile: string): string {
   const ext = extname(deckfile);

@@ -1,5 +1,5 @@
 import { assertEquals } from "@std/assert";
-import { join } from "@std/path";
+import { join } from "node:path";
 import { migrateDeck } from "./mod.ts";
 
 Deno.test("test makeCsvDeck", async (t) => {

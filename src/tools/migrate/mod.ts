@@ -1,5 +1,5 @@
 import { stringify as stringifyCsv } from "@std/csv";
-import { extname } from "@std/path";
+import { extname } from "node:path";
 import { parse as parseYaml } from "@std/yaml";
 import { Card } from "../../card.ts";
 

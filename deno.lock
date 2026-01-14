@@ -7,7 +7,6 @@
     "jsr:@std/csv@~0.224.3": "0.224.3",
     "jsr:@std/fmt@~0.225.6": "0.225.6",
     "jsr:@std/internal@^1.0.4": "1.0.4",
-    "jsr:@std/path@^1.0.2": "1.0.6",
     "jsr:@std/streams@~0.224.4": "0.224.5",
     "jsr:@std/yaml@~0.224.3": "0.224.3",
     "npm:supermemo@2.0.23": "2.0.23"
@@ -37,9 +36,6 @@
     "@std/internal@1.0.4": {
       "integrity": "62e8e4911527e5e4f307741a795c0b0a9e6958d0b3790716ae71ce085f755422"
     },
-    "@std/path@1.0.6": {
-      "integrity": "ab2c55f902b380cf28e0eec501b4906e4c1960d13f00e11cfbcd21de15f18fed"
-    },
     "@std/streams@0.224.5": {
       "integrity": "bcde7818dd5460d474cdbd674b15f6638b9cd73cd64e52bd852fba2bd4d8ec91",
       "dependencies": [
@@ -61,7 +57,6 @@
       "jsr:@std/cli@1",
       "jsr:@std/csv@~0.224.3",
       "jsr:@std/fmt@~0.225.6",
-      "jsr:@std/path@^1.0.2",
       "jsr:@std/yaml@~0.224.3"
     ],
     "packageJson": {
