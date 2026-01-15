@@ -9,7 +9,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "esnext",
-    "lib": ["esnext"],
+    "lib": ["esnext", "deno.ns", "dom"],
     "types": ["node"],
 
     // Other Outputs

@@ -1,6 +1,7 @@
 import { parse as parseCsv } from "csv-parse/sync";
 import { extname } from "node:path";
-import { Card } from "./card.ts";
+import { type Card } from "./card.ts";
+import { readFile } from "node:fs/promises";
 
 async function loadDeck(filename: string): Promise<Card[]> {
   const ext = extname(filename);
@@ -21,7 +22,7 @@ type CsvCard = {
 };
 
 async function loadCsvDeck(filename: string): Promise<Card[]> {
-  const csvContent = await Deno.readTextFile(filename);
+  const csvContent = await readFile(filename, "utf-8");
 
   const parsedCsv = parseCsv(
     csvContent,

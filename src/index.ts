@@ -9,12 +9,13 @@ import {
   loadReviews,
   newReviewItem,
   practice,
-  ReviewItem,
+  type ReviewItem,
   saveReviews,
   score2grade,
 } from "./review.ts";
+import process from "node:process";
 
-const args = parseArgs(Deno.args) as {
+const args = parseArgs(process.argv.slice(2)) as {
   deck: string;
 };
 

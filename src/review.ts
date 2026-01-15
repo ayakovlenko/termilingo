@@ -1,7 +1,8 @@
-import { supermemo, SuperMemoGrade, SuperMemoItem } from "supermemo";
-import { Card } from "./card.ts";
+import { supermemo, type SuperMemoGrade, type SuperMemoItem } from "supermemo";
+import { type Card } from "./card.ts";
 import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import { addDays } from "./dateutil.ts";
+import { readFile, writeFile } from "node:fs/promises";
 
 interface ReviewItem extends Card, SuperMemoItem {
   dueDate: string;
@@ -11,7 +12,7 @@ interface ReviewItem extends Card, SuperMemoItem {
 async function loadReviews(
   filename: string,
 ): Promise<Map<string, ReviewItem>> {
-  const s = await Deno.readTextFile(filename);
+  const s = await readFile(filename, "utf-8");
 
   const reviews = parseYaml(s) as ReviewItem[];
 
@@ -38,7 +39,7 @@ async function saveReviews(
     return 0;
   });
 
-  await Deno.writeTextFile(filename, stringifyYaml(sortedReviews));
+  await writeFile(filename, stringifyYaml(sortedReviews));
 }
 
 function newReviewItem(flashcard: Card): ReviewItem {

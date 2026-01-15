@@ -1,6 +1,7 @@
 import { assertEquals } from "@std/assert";
 import { join } from "node:path";
 import { migrateDeck } from "./mod.ts";
+import { readFile, writeFile } from "node:fs/promises";
 
 Deno.test("test makeCsvDeck", async (t) => {
   const dir = await Deno.makeTempDir({
@@ -27,7 +28,7 @@ cards:
     const filename = join(dir, "deck.yaml");
 
     // when
-    await Deno.writeTextFile(filename, yamlContent);
+    await writeFile(filename, yamlContent);
 
     const csvDeckFilenameHave = await migrateDeck(filename);
 
@@ -36,7 +37,7 @@ cards:
 
     assertEquals(csvDeckFilenameHave, csvDeckFilenameWant);
 
-    const have = await Deno.readTextFile(join(dir, "deck.csv"));
+    const have = await readFile(join(dir, "deck.csv"), "utf-8");
 
     const want = `Question,Answer
 f,b

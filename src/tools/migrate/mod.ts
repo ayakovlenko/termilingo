@@ -1,7 +1,8 @@
 import { stringify as stringifyCsv } from "csv-stringify/sync";
 import { extname } from "node:path";
 import { parse as parseYaml } from "yaml";
-import { Card } from "../../card.ts";
+import { type Card } from "../../card.ts";
+import { readFile, writeFile } from "node:fs/promises";
 
 interface CardYaml {
   f: string;
@@ -9,7 +10,7 @@ interface CardYaml {
 }
 
 async function loadYamlDeck(filename: string): Promise<Card[]> {
-  const s = await Deno.readTextFile(filename);
+  const s = await readFile(filename, "utf-8");
 
   const { cards } = parseYaml(s) as { cards: CardYaml[] };
 
@@ -42,7 +43,7 @@ async function migrateDeck(filename: string): Promise<string | undefined> {
 
   const csvDeckFilename = filename.replace(".yaml", ".csv");
 
-  await Deno.writeTextFile(
+  await writeFile(
     csvDeckFilename,
     csvContent,
   );

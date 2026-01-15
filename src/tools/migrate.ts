@@ -9,7 +9,7 @@ if (Deno.args.length != 1) {
   Deno.exit(1);
 }
 
-const csvDeckFilename = await migrateDeck(Deno.args[0]);
+const csvDeckFilename = await migrateDeck(Deno.args[0]!);
 
 if (csvDeckFilename) {
   console.log(csvDeckFilename);
