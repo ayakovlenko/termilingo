@@ -5,10 +5,12 @@
     "jsr:@std/cli@1": "1.0.6",
     "jsr:@std/fmt@~0.225.6": "0.225.6",
     "jsr:@std/internal@^1.0.4": "1.0.4",
+    "npm:@types/node@25.0.9": "25.0.9",
     "npm:csv-parse@6.1.0": "6.1.0",
     "npm:csv-stringify@6.6.0": "6.6.0",
     "npm:supermemo@2.0.23": "2.0.23",
-    "npm:tsdown@0.20.0-beta.3": "0.20.0-beta.3_rolldown@1.0.0-beta.60",
+    "npm:tsdown@0.20.0-beta.3": "0.20.0-beta.3_rolldown@1.0.0-beta.60_typescript@5.9.3",
+    "npm:typescript@5.9.3": "5.9.3",
     "npm:yaml@2.8.2": "2.8.2"
   },
   "jsr": {
@@ -191,6 +193,12 @@
         "tslib"
       ]
     },
+    "@types/node@25.0.9": {
+      "integrity": "sha512-/rpCXHlCWeqClNBwUhDcusJxXYDjZTyE8v5oTO7WbL8eij2nKhUeU89/6xgjU7N4/Vh3He0BtyhJdQbDyhiXAw==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
     "ansis@4.2.0": {
       "integrity": "sha512-HqZ5rWlFjGiV0tDm3UxxgNRqsOTniqoKZu0pIAfh7TZQMGuZK+hH0drySty0si0QXj1ieop4+SkSfPZBPPkHig=="
     },
@@ -262,7 +270,7 @@
     "resolve-pkg-maps@1.0.0": {
       "integrity": "sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw=="
     },
-    "rolldown-plugin-dts@0.21.2_rolldown@1.0.0-beta.60": {
+    "rolldown-plugin-dts@0.21.2_rolldown@1.0.0-beta.60_typescript@5.9.3": {
       "integrity": "sha512-yFOvVkkxmdGVBH4UwCu/ApQZQXI1kre+aQyOyrmDAwFfALRaX7JlEn+F3HDDj3hEFE/q3+kCSGYGxEZ8W5NsGg==",
       "dependencies": [
         "@babel/generator",
@@ -273,7 +281,11 @@
         "dts-resolver",
         "get-tsconfig",
         "obug",
-        "rolldown"
+        "rolldown",
+        "typescript"
+      ],
+      "optionalPeers": [
+        "typescript"
       ]
     },
     "rolldown@1.0.0-beta.60": {
@@ -320,7 +332,7 @@
       "integrity": "sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==",
       "bin": true
     },
-    "tsdown@0.20.0-beta.3_rolldown@1.0.0-beta.60": {
+    "tsdown@0.20.0-beta.3_rolldown@1.0.0-beta.60_typescript@5.9.3": {
       "integrity": "sha512-XcMb46jOmxrXCiUkw7qhI3f1BUTnU0kWmpBK6CzASDbjxCpB2k2hGpdwIGM4GanGhWuNaoCW4+GvyHoPgUNRaQ==",
       "dependencies": [
         "ansis",
@@ -337,13 +349,21 @@
         "tinyexec",
         "tinyglobby",
         "tree-kill",
+        "typescript",
         "unconfig-core",
         "unrun"
+      ],
+      "optionalPeers": [
+        "typescript"
       ],
       "bin": true
     },
     "tslib@2.8.1": {
       "integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
+    },
+    "typescript@5.9.3": {
+      "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
+      "bin": true
     },
     "unconfig-core@7.4.2": {
       "integrity": "sha512-VgPCvLWugINbXvMQDf8Jh0mlbvNjNC6eSUziHsBCMpxR05OPrNrvDnyatdMjRgcHaaNsCqz+wjNXxNw1kRLHUg==",
@@ -351,6 +371,9 @@
         "@quansync/fs",
         "quansync"
       ]
+    },
+    "undici-types@7.16.0": {
+      "integrity": "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw=="
     },
     "unrun@0.2.25": {
       "integrity": "sha512-ZOr5uQL+JlcUT8hZsQbtuUgb1zzcFx3juhXyLSsciaWa3DW1ldMY9r4KSF3+k/LR1Evj2ggAZo1usK4/knBjMQ==",
@@ -372,10 +395,12 @@
     ],
     "packageJson": {
       "dependencies": [
+        "npm:@types/node@25.0.9",
         "npm:csv-parse@6.1.0",
         "npm:csv-stringify@6.6.0",
         "npm:supermemo@2.0.23",
         "npm:tsdown@0.20.0-beta.3",
+        "npm:typescript@5.9.3",
         "npm:yaml@2.8.2"
       ]
     }
