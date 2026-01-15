@@ -1,6 +1,6 @@
 import { supermemo, SuperMemoGrade, SuperMemoItem } from "supermemo";
 import { Card } from "./card.ts";
-import { parse as parseYaml, stringify as stringifyYaml } from "@std/yaml";
+import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import { addDays } from "./dateutil.ts";
 
 interface ReviewItem extends Card, SuperMemoItem {

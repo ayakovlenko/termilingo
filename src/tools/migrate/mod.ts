@@ -1,6 +1,6 @@
 import { stringify as stringifyCsv } from "@std/csv";
 import { extname } from "node:path";
-import { parse as parseYaml } from "@std/yaml";
+import { parse as parseYaml } from "yaml";
 import { Card } from "../../card.ts";
 
 interface CardYaml {
