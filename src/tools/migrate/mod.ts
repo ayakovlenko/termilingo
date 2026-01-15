@@ -1,4 +1,4 @@
-import { stringify as stringifyCsv } from "@std/csv";
+import { stringify as stringifyCsv } from "csv-stringify/sync";
 import { extname } from "node:path";
 import { parse as parseYaml } from "yaml";
 import { Card } from "../../card.ts";

@@ -1,4 +1,4 @@
-import { parse as parseCsv } from "@std/csv";
+import { parse as parseCsv } from "csv-parse/sync";
 import { extname } from "node:path";
 import { Card } from "./card.ts";
 
@@ -26,8 +26,8 @@ async function loadCsvDeck(filename: string): Promise<Card[]> {
   const parsedCsv = parseCsv(
     csvContent,
     {
-      header: true,
-      skipFirstRow: true,
+      columns: true,
+      skip_empty_lines: true,
     },
   ) as CsvCard[];
 

@@ -2,12 +2,11 @@
   "version": "5",
   "specifiers": {
     "jsr:@std/assert@^1.0.1": "1.0.6",
-    "jsr:@std/bytes@^1.0.0-rc.3": "1.0.2",
     "jsr:@std/cli@1": "1.0.6",
-    "jsr:@std/csv@~0.224.3": "0.224.3",
     "jsr:@std/fmt@~0.225.6": "0.225.6",
     "jsr:@std/internal@^1.0.4": "1.0.4",
-    "jsr:@std/streams@~0.224.4": "0.224.5",
+    "npm:csv-parse@6.1.0": "6.1.0",
+    "npm:csv-stringify@6.6.0": "6.6.0",
     "npm:supermemo@2.0.23": "2.0.23",
     "npm:yaml@2.8.2": "2.8.2"
   },
@@ -18,32 +17,23 @@
         "jsr:@std/internal"
       ]
     },
-    "@std/bytes@1.0.2": {
-      "integrity": "fbdee322bbd8c599a6af186a1603b3355e59a5fb1baa139f8f4c3c9a1b3e3d57"
-    },
     "@std/cli@1.0.6": {
       "integrity": "d22d8b38c66c666d7ad1f2a66c5b122da1704f985d3c47f01129f05abb6c5d3d"
-    },
-    "@std/csv@0.224.3": {
-      "integrity": "cf9cb88954a029b9997a613f67771d39b4d1602c8ea1a289328c89b48460fae3",
-      "dependencies": [
-        "jsr:@std/streams"
-      ]
     },
     "@std/fmt@0.225.6": {
       "integrity": "aba6aea27f66813cecfd9484e074a9e9845782ab0685c030e453a8a70b37afc8"
     },
     "@std/internal@1.0.4": {
       "integrity": "62e8e4911527e5e4f307741a795c0b0a9e6958d0b3790716ae71ce085f755422"
-    },
-    "@std/streams@0.224.5": {
-      "integrity": "bcde7818dd5460d474cdbd674b15f6638b9cd73cd64e52bd852fba2bd4d8ec91",
-      "dependencies": [
-        "jsr:@std/bytes"
-      ]
     }
   },
   "npm": {
+    "csv-parse@6.1.0": {
+      "integrity": "sha512-CEE+jwpgLn+MmtCpVcPtiCZpVtB6Z2OKPTr34pycYYoL7sxdOkXDdQ4lRiw6ioC0q6BLqhc6cKweCVvral8yhw=="
+    },
+    "csv-stringify@6.6.0": {
+      "integrity": "sha512-YW32lKOmIBgbxtu3g5SaiqWNwa/9ISQt2EcgOq0+RAIFufFp9is6tqNnKahqE5kuKvrnYAzs28r+s6pXJR8Vcw=="
+    },
     "supermemo@2.0.23": {
       "integrity": "sha512-nmWfFf3opwJahxHHBS2k3FtBnK0Ii4LPZ8YrGqu9uoDDyftQodlRP3tGtWRo5h7dJWR6aSuJKuD8iiYbiOA9bw=="
     },
@@ -56,11 +46,12 @@
     "dependencies": [
       "jsr:@std/assert@^1.0.1",
       "jsr:@std/cli@1",
-      "jsr:@std/csv@~0.224.3",
       "jsr:@std/fmt@~0.225.6"
     ],
     "packageJson": {
       "dependencies": [
+        "npm:csv-parse@6.1.0",
+        "npm:csv-stringify@6.6.0",
         "npm:supermemo@2.0.23",
         "npm:yaml@2.8.2"
       ]

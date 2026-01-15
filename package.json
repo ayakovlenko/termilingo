@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/ayakovlenko/termilingo",
   "dependencies": {
+    "csv-parse": "6.1.0",
+    "csv-stringify": "6.6.0",
     "supermemo": "2.0.23",
     "yaml": "2.8.2"
   }
