@@ -38,9 +38,9 @@ cards:
 
     const have = await Deno.readTextFile(join(dir, "deck.csv"));
 
-    const want = `Question,Answer\r
-f,b\r
-"a, b",c\r
+    const want = `Question,Answer
+f,b
+"a, b",c
 `;
 
     assertEquals(have, want);

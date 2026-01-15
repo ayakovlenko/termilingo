@@ -27,7 +27,7 @@ function makeCsvDeck(cards: Card[]): string {
     "Answer",
   ];
 
-  return stringifyCsv(data, { columns });
+  return stringifyCsv(data, { header: true, columns });
 }
 
 async function migrateDeck(filename: string): Promise<string | undefined> {
