@@ -87,7 +87,9 @@ plt.show()
 Run with an example deck:
 
 ```sh
-deno task run --deck example-swedish.csv
+npm run build
+
+npm start -- --deck example-swedish.csv
 ```
 
 Provide a path to your own deck and start practicing.
