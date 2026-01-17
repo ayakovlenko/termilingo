@@ -1,4 +1,4 @@
-import { levenshteinDistance } from "./levenshtein-distance.ts";
+import { distance as levenshteinDistance } from "fastest-levenshtein";
 
 // The function returns the Levenshtein ratio for the given strings. The
 // ratio is computed as follows and takes the value between 0 and 1 including:
