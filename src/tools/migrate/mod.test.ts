@@ -1,21 +1,21 @@
-import { assertEquals } from "@std/assert";
+import { describe, expect, test } from "vitest";
 import { join } from "node:path";
 import { migrateDeck } from "./mod.ts";
 import { readFile, writeFile } from "node:fs/promises";
+import { mkdtemp } from "node:fs/promises";
+import { tmpdir } from "node:os";
 
-Deno.test("test makeCsvDeck", async (t) => {
-  const dir = await Deno.makeTempDir({
-    prefix: "termilingo_",
-  });
-
-  await t.step("no migration needed", async () => {
+describe("test makeCsvDeck", () => {
+  test("no migration needed", async () => {
     const have = await migrateDeck("filename.csv");
     const want = undefined;
 
-    assertEquals(have, want);
+    expect(have).toEqual(want);
   });
 
-  await t.step("migrate yaml to csv", async () => {
+  test("migrate yaml to csv", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "termilingo_"));
+
     // given
     const yamlContent = `---
 cards:
@@ -35,7 +35,7 @@ cards:
     // then
     const csvDeckFilenameWant = join(dir, "deck.csv");
 
-    assertEquals(csvDeckFilenameHave, csvDeckFilenameWant);
+    expect(csvDeckFilenameHave).toEqual(csvDeckFilenameWant);
 
     const have = await readFile(join(dir, "deck.csv"), "utf-8");
 
@@ -44,6 +44,6 @@ f,b
 "a, b",c
 `;
 
-    assertEquals(have, want);
+    expect(have).toEqual(want);
   });
 });

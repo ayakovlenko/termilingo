@@ -1,18 +1,18 @@
-import { assertEquals } from "@std/assert";
+import { describe, expect, test } from "vitest";
 import { deriveReviewfile } from "./pathutil.ts";
 
-Deno.test("test deriveReviewfile", async (t) => {
-  await t.step(".csv", () => {
+describe("test deriveReviewfile", () => {
+  test(".csv", () => {
     const have = deriveReviewfile("../decks/spanish.csv");
     const want = "../decks/spanish.review.yaml";
 
-    assertEquals(have, want);
+    expect(have).toEqual(want);
   });
 
-  await t.step(".yaml", () => {
+  test(".yaml", () => {
     const have = deriveReviewfile("../decks/spanish.yaml");
     const want = "../decks/spanish.review.yaml";
 
-    assertEquals(have, want);
+    expect(have).toEqual(want);
   });
 });
