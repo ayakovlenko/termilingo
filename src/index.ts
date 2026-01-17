@@ -1,5 +1,5 @@
 import { parseArgs } from "@std/cli/parse-args";
-import { green, red, yellow } from "@std/fmt/colors";
+import pc from "picocolors";
 import { Input } from "./cmd/cli/input.ts";
 import { shuffle } from "./collections.ts";
 import { loadDeck } from "./deck.ts";
@@ -45,7 +45,7 @@ for (const { front, back } of reviewMap.values()) {
   }
 
   reviewMap.delete(front);
-  console.log(yellow("! " + front));
+  console.log(pc.yellow("! " + front));
 }
 
 // add new items
@@ -56,7 +56,7 @@ for (const card of deck) {
 
   reviewMap.set(card.front, newReviewItem(card));
 
-  console.log(green("+ " + card.front));
+  console.log(pc.green("+ " + card.front));
 }
 
 // delete old items
@@ -70,7 +70,7 @@ for (const card of deck) {
 for (const reviewItemKey of reviewMap.keys()) {
   if (!frontCardSet.has(reviewItemKey)) {
     reviewMap.delete(reviewItemKey);
-    console.log("- " + red(reviewItemKey));
+    console.log("- " + pc.red(reviewItemKey));
   }
 }
 
