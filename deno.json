@@ -1,8 +1,0 @@
-{
-  "tasks": {
-    "run": "deno run --allow-read --allow-write --allow-env=NODE_ENV,TERM,LOG_TOKENS,LOG_STREAM src/cli.ts",
-    "migrate": "deno run --allow-read --allow-write src/tools/migrate.ts"
-  },
-  "nodeModulesDir": "auto",
-  "imports": {}
-}

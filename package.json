@@ -22,7 +22,7 @@
   "homepage": "https://github.com/ayakovlenko/termilingo",
   "scripts": {
     "build": "tsdown",
-    "start": "deno -A ./dist/index.mjs",
+    "start": "node ./dist/index.mjs",
     "test": "vitest run"
   },
   "dependencies": {
@@ -30,8 +30,7 @@
     "csv-stringify": "6.6.0",
     "fastest-levenshtein": "1.0.16",
     "picocolors": "1.1.1",
-    "supermemo": "2.0.23",
-    "yaml": "2.8.2"
+    "supermemo": "2.0.23"
   },
   "devDependencies": {
     "@types/node": "25.0.9",

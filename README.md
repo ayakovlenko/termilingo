@@ -6,10 +6,6 @@
 Termilingo is a spaced repetition flashcard app designed for use in the
 terminal.
 
-The app is written in TypeScript and uses Deno as a TypeScript runtime. In order
-to use it, you need install Deno first:
-https://docs.deno.com/runtime/manual/getting_started/installation/
-
 It uses a simple deck format to create flashcards:
 
 ```csv
