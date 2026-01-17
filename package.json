@@ -22,7 +22,8 @@
   "homepage": "https://github.com/ayakovlenko/termilingo",
   "scripts": {
     "build": "tsdown",
-    "start": "deno -A ./dist/index.mjs"
+    "start": "deno -A ./dist/index.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
     "csv-parse": "6.1.0",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/node": "25.0.9",
     "tsdown": "0.20.0-beta.3",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "4.0.17"
   }
 }
