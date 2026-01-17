@@ -1,8 +1,5 @@
 # Termilingo
 
-![](https://github.com/ayakovlenko/termilingo/actions/workflows/test.yaml/badge.svg)
-[![](https://coveralls.io/repos/github/ayakovlenko/termilingo/badge.svg?branch=main)](https://coveralls.io/github/ayakovlenko/termilingo?branch=main)
-
 Termilingo is a spaced repetition flashcard app designed for use in the
 terminal.
 
@@ -11,12 +8,29 @@ It uses a simple deck format to create flashcards:
 ```csv
 Question,Answer
 Front side,Back side
-Front side,Back side
+```
+
+Example:
+
+```csv
+Question,Answer
+a dog,en hund
+the dog,hunden
+a cat,en katt
+the cat,katten
+a house,ett hus
+the house,huset
 ```
 
 > [!TIP]\
 > This is the format of Brainscape CSV export, so they can be used by Termilingo
 > directly.
+
+## Installation
+
+```bash
+npm install -g termilingo@latest
+```
 
 ## Scoring system
 
@@ -92,13 +106,3 @@ Provide a path to your own deck and start practicing.
 
 On the first run, the app will create a complimentary review file following a
 convention `<deck-name>.review.yaml` to keep track of the state.
-
-## Thanks
-
-The app is using an implementation of SM2 by @VienDinhCom.
-
-The package is copied into [./src/supermemo](./src/supermemo) with the intention
-of modifying it into SM2+ as described in the article by BlueRaja
-[here][sm2plus].
-
-[sm2plus]: https://www.blueraja.com/blog/477/a-better-spaced-repetition-learning-algorithm-sm2
