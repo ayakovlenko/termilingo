@@ -1,4 +1,4 @@
-import { parseArgs } from "@std/cli/parse-args";
+import { parseArgs } from "node:util";
 import pc from "picocolors";
 import { Input } from "./cmd/cli/input.ts";
 import { shuffle } from "./collections.ts";
@@ -15,11 +15,22 @@ import {
 } from "./review.ts";
 import process from "node:process";
 
-const args = parseArgs(process.argv.slice(2)) as {
-  deck: string;
-};
+const { values: args } = parseArgs({
+  args: process.argv.slice(2),
+  options: {
+    deck: {
+      type: "string",
+    },
+  },
+  strict: true,
+});
 
 const deckfile = args.deck;
+if (!deckfile) {
+  console.error("error: --deck is required");
+  process.exit(1);
+}
+
 const reviewfile = deriveReviewfile(deckfile);
 
 console.log({ deckfile, reviewfile });

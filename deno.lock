@@ -1,7 +1,6 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@std/cli@1": "1.0.6",
     "npm:@types/node@25.0.9": "25.0.9",
     "npm:csv-parse@6.1.0": "6.1.0",
     "npm:csv-stringify@6.6.0": "6.6.0",
@@ -12,11 +11,6 @@
     "npm:typescript@5.9.3": "5.9.3",
     "npm:vitest@4.0.17": "4.0.17_@types+node@25.0.9_vite@7.3.1__@types+node@25.0.9__yaml@2.8.2__picomatch@4.0.3_yaml@2.8.2",
     "npm:yaml@2.8.2": "2.8.2"
-  },
-  "jsr": {
-    "@std/cli@1.0.6": {
-      "integrity": "d22d8b38c66c666d7ad1f2a66c5b122da1704f985d3c47f01129f05abb6c5d3d"
-    }
   },
   "npm": {
     "@babel/generator@7.28.6": {
@@ -893,9 +887,6 @@
     }
   },
   "workspace": {
-    "dependencies": [
-      "jsr:@std/cli@1"
-    ],
     "packageJson": {
       "dependencies": [
         "npm:@types/node@25.0.9",
