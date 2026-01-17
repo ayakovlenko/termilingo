@@ -1,6 +1,6 @@
 {
   "name": "termilingo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ayakovlenko/termilingo.git"
@@ -20,6 +20,12 @@
     "url": "https://github.com/ayakovlenko/termilingo/issues"
   },
   "homepage": "https://github.com/ayakovlenko/termilingo",
+  "main": "dist/index.mjs",
+  "files": [
+    "dist/index.mjs",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsdown",
     "start": "node ./dist/index.mjs",
@@ -38,5 +44,8 @@
     "tsdown": "0.20.0-beta.3",
     "typescript": "5.9.3",
     "vitest": "4.0.17"
+  },
+  "bin": {
+    "termilingo": "dist/index.mjs"
   }
 }

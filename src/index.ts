@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { parseArgs } from "node:util";
 import pc from "picocolors";
 import { Input } from "./cmd/cli/input.ts";
